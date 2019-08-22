@@ -1,6 +1,6 @@
-require('dotenv').config({ path: '.env' });
+import env from './env';
 
 export default {
-  PORT: process.env.PORT,
-  NODE_ENV: process.env.NODE_ENV,
+  PORT: env.PORT,
+  NODE_ENV: env.NODE_ENV,
 };
