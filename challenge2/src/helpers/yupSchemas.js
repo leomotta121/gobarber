@@ -18,6 +18,7 @@ const errorMessages = {
   confirm_password: {
     required: 'confirm_password is required.',
     min: 'password must have at least 6 characters.',
+    oneOf: 'confirm_password most match with password',
   },
 };
 
@@ -35,9 +36,13 @@ export default {
       .required(errorMessages.password.required)
       .min(6, errorMessages.password.min),
 
-    confirm_password: Yup.string()
-      .required(errorMessages.confirm_password.required)
-      .min(6, errorMessages.password.min),
+    confirm_password: Yup.string().when('password', (password, field) =>
+      password
+        ? field
+            .required(errorMessages.confirm_password.required)
+            .oneOf([Yup.ref('password')], errorMessages.confirm_password.oneOf)
+        : field
+    ),
   }),
 
   updateUser: Yup.object().shape({
@@ -45,22 +50,32 @@ export default {
 
     last_name: Yup.string(),
 
-    email: Yup.string().email(errorMessages.email.required),
+    email: Yup.string().email(errorMessages.email.isEmail),
 
-    oldPassword: Yup.string().min(6, errorMessages.password.min),
+    old_password: Yup.string().min(6, errorMessages.password.min),
 
     password: Yup.string()
       .min(6, errorMessages.password.min)
-      .when('oldPassword', (oldPassword, field) =>
-        oldPassword ? field.required(errorMessages.password.required) : field
+      .when('old_password', (old_password, field) =>
+        old_password ? field.required(errorMessages.password.required) : field
       ),
 
     confirm_password: Yup.string().when('password', (password, field) =>
       password
         ? field
             .required(errorMessages.confirm_password.required)
-            .oneOf([Yup.ref('password')])
+            .oneOf([Yup.ref('password')], errorMessages.confirm_password.oneOf)
         : field
     ),
+  }),
+
+  storeSession: Yup.object().shape({
+    email: Yup.string()
+      .email(errorMessages.email.isEmail)
+      .required(errorMessages.email.required),
+
+    password: Yup.string()
+      .required(errorMessages.password.required)
+      .min(6, errorMessages.password.min),
   }),
 };

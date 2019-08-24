@@ -26,8 +26,7 @@ class UserValidation {
 
   async validateUpdateUser(req, res, next) {
     try {
-      await schemas
-        .storeUser()
+      await schemas.updateUser
         .validate(req.body, { abortEarly: false })
         .catch(errors => {
           const schemaErrors = errors.inner.map(err => {
