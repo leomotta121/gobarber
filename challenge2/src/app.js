@@ -1,6 +1,6 @@
 import express from 'express';
 import routes from './routes';
-import ErrorHandler from './helpers/errorHandler';
+import ErrorHandler from './app/middlewares/errorHandler';
 import Database from './database';
 
 class App {

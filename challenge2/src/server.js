@@ -1,7 +1,7 @@
 import app from './app';
-import appConfig from './config/appConfig';
+import env from './config/env';
 
-app.listen(appConfig.PORT, () =>
+app.listen(env.PORT, () =>
   // eslint-disable-next-line no-console
-  console.log(`running on port ${appConfig.PORT}`)
+  console.log(`running on port ${env.PORT}`)
 );

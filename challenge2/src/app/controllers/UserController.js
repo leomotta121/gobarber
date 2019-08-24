@@ -1,25 +1,9 @@
 import User from '../models/User';
 import ApiError from '../../helpers/apiError';
-import schemas from '../../helpers/yupSchemas';
 
 class UserController {
-  async sotore(req, res, next) {
+  async store(req, res, next) {
     try {
-      await schemas
-        .user()
-        .validate(req.body, { abortEarly: false })
-        .catch(errors => {
-          const schemaErrors = errors.inner.map(err => {
-            return { field: err.path, message: err.message };
-          });
-          throw new ApiError(
-            'Validation Error.',
-            'Some fields are not valid.',
-            400,
-            schemaErrors
-          );
-        });
-
       const userExists = await User.findOne({
         where: { email: req.body.email },
       });
@@ -39,6 +23,14 @@ class UserController {
         last_name,
         email,
       });
+    } catch (error) {
+      return next(error);
+    }
+  }
+
+  async update(req, res, next) {
+    try {
+      return res.json({});
     } catch (error) {
       return next(error);
     }

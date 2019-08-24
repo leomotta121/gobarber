@@ -1,5 +1,5 @@
-import ApiError from './apiError';
-import env from '../config/env';
+import ApiError from '../../helpers/apiError';
+import env from '../../config/env';
 
 class ErrorHandler {
   catchNotFound(req, res, next) {

@@ -4,6 +4,10 @@ module.exports = {
   NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
 
+  // Auth configs
+  SECRET: process.env.SECRET,
+  EXPIRES_IN: process.env.EXPIRES_IN,
+
   // DATABASE
   DB_DIALECT: process.env.DB_DIALECT,
   DB_HOST: process.env.DB_HOST,
