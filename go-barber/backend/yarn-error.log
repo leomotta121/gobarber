@@ -1,8 +1,8 @@
 Arguments: 
-  /home/leo/.nvm/versions/node/v10.16.3/bin/node /usr/share/yarn/bin/yarn.js add date_fns@next
+  /home/leo/.nvm/versions/node/v10.16.3/bin/node /usr/share/yarn/bin/yarn.js
 
 PATH: 
-  /home/leo/.nvm/versions/node/v10.16.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/leo/.nvm/versions/node/v10.16.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/leo/Android/Sdk/tools:/home/leo/Android/Sdk/platform-tools:/home/leo/Android/Sdk/tools:/home/leo/Android/Sdk/platform-tools:/home/leo/Android/Sdk/tools:/home/leo/Android/Sdk/platform-tools
 
 Yarn version: 
   1.17.3
@@ -14,17 +14,8 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/date_fns: Not found
-      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66830:18)
-      at Request.self.callback (/usr/share/yarn/lib/cli.js:140464:22)
-      at Request.emit (events.js:198:13)
-      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141436:10)
-      at Request.emit (events.js:198:13)
-      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141358:12)
-      at Object.onceWrapper (events.js:286:20)
-      at IncomingMessage.emit (events.js:203:15)
-      at endReadableNT (_stream_readable.js:1145:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: connect ECONNREFUSED 92.242.140.20:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1106:14)
 
 npm manifest: 
   {
@@ -38,6 +29,7 @@ npm manifest:
     },
     "dependencies": {
       "bcryptjs": "^2.4.3",
+      "date-fns": "^2.0.0-beta.5",
       "express": "^4.17.1",
       "jsonwebtoken": "^8.5.1",
       "multer": "^1.4.2",
@@ -672,6 +664,11 @@ Lockfile:
     dependencies:
       es5-ext "^0.10.50"
       type "^1.0.1"
+  
+  date-fns@^2.0.0-beta.5:
+    version "2.0.0-beta.5"
+    resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.5.tgz#90885db3772802d55519cd12acd49de56aca1059"
+    integrity sha512-GS5yi964NDFNoja9yOdWFj9T97T67yLrUeJZgddHaVfc/6tHWtX7RXocuubmZkNzrZUZ9BqBOW7jTR5OoWjJ1w==
   
   debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.9:
     version "2.6.9"
