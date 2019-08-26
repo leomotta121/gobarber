@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import User from '../models/User';
 import authConfig from '../../config/auth';
 
-class UserControler {
+class SessionControler {
   // async index(req, res, next) {}
 
   async store(req, res, next) {
@@ -46,4 +46,4 @@ class UserControler {
   }
 }
 
-export default new UserControler();
+export default new SessionControler();
