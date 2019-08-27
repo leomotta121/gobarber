@@ -24,6 +24,11 @@ routes.get('/providers', authMiddleware, ProviderController.index);
 
 routes.get('/appointments', authMiddleware, AppointmentsController.index);
 routes.post('/appointments', authMiddleware, AppointmentsController.store);
+routes.delete(
+  '/appointments/:id',
+  authMiddleware,
+  AppointmentsController.delete
+);
 
 routes.get('/schedule', authMiddleware, ScheduleController.index);
 
