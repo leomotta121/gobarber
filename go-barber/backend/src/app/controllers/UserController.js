@@ -58,7 +58,7 @@ class UserControler {
 
     const user = await User.findByPk(req.userId);
 
-    if (newEmail !== user.email) {
+    if (newEmail && newEmail !== user.email) {
       const userExists = await User.findOne({ where: { email: newEmail } });
 
       if (userExists) {
