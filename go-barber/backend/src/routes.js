@@ -8,6 +8,7 @@ import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import AppointmentsController from './app/controllers/AppointmentController';
 import ScheduleController from './app/controllers/ScheduleController';
+import NotificationController from './app/controllers/NotificationController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -25,6 +26,9 @@ routes.get('/appointments', authMiddleware, AppointmentsController.index);
 routes.post('/appointments', authMiddleware, AppointmentsController.store);
 
 routes.get('/schedule', authMiddleware, ScheduleController.index);
+
+routes.get('/notifications', authMiddleware, NotificationController.index);
+routes.put('/notifications/:id', authMiddleware, NotificationController.update);
 
 routes.post(
   '/files',
