@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { lighten } from 'polished';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
@@ -36,5 +39,10 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+      background: ${lighten(0.08, '#3b9eff')} !important;
+    }
   }
 `;
